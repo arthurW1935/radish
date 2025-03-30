@@ -8,11 +8,11 @@ import (
 )
 
 type Server struct {
-	cache *cache.Cache
+	cache *cache.CacheManager
 }
 
 
-func NewServer(c *cache.Cache) *Server {
+func NewServer(c *cache.CacheManager) *Server {
 	return &Server{cache: c}
 }
 
@@ -21,7 +21,7 @@ func (s *Server) Start() {
 	http.HandleFunc("/put", s.putHandler)
 	http.HandleFunc("/get", s.getHandler)
 
-	log.Println("Server running on port 7171...")
+	log.Println("HTTP Server running on port 7171...")
 	log.Fatal(http.ListenAndServe(":7171", nil))
 }
 
