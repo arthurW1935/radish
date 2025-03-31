@@ -1,7 +1,7 @@
 # Radish - My own Redis-like Key-Value Cache
 
 ## Overview
-Radish is a high-performance in-memory key-value store designed for low-latency caching and fast data retrieval. It supports both HTTP and TCP RESP (Redis Serialization Protocol) for easy integration with various applications.
+Radish is a high-performance in-memory key-value store designed for low-latency caching and fast data retrieval. It supports TCP RESP (Redis Serialization Protocol) with provisions for HTTP too for easy integration with various applications.
 
 ## Features
 - **Efficient LRU-based caching** with memory-aware eviction.
@@ -63,9 +63,7 @@ Radish follows the RESP protocol for TCP-based communication:
   ```
   
   Response:
-  - If key exists: `$<length>
-<value>
-`
+  - If key exists: `$<length> <value>`
   - If key does not exist: `$-1\r\n`
 
 ## SDK Usage (Python)
