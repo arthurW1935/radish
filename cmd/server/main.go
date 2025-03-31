@@ -6,7 +6,9 @@ import (
 )
 
 func main() {
-	kvStore := cache.NewCache()
-	srv := server.NewServer(kvStore)
+	
+
+	kvStore := cache.NewCacheManager(16)
+	srv := server.NewTCPServer(kvStore)
 	srv.Start()
 }
